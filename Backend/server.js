@@ -1,6 +1,6 @@
-//plugin http 
+// Plugin http 
 const http = require('http');
-//import de l'app.js
+// Import de l'app.js
 const app = require('./app');
 
 const normalizePort = val => {

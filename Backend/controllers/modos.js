@@ -1,16 +1,16 @@
-//plugin Npm Node.js (jsonwebtoken & mysql)
+// Plugin Npm Node.js (jsonwebtoken & mysql)
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 
-//Connexion à la database : 
+// Connexion à la database : 
 const connectdb = require('../database/connection-db');
 
-//Recuparation de l'ensemble des posts :
+// Recuparation de l'ensemble des posts :
 exports.getAllPosts = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'serBsSjzVclhImFAF6UNLCHlH6pvh3Fr');
     const mod = decodedToken.moderation;
-    //Si l'utilisateur possède les droits d'Admin :
+    // Si l'utilisateur possède les droits d'Admin :
     if(mod == 1) {
         let sql = `SELECT posts.id, posts.userId, posts.content,
         DATE_FORMAT(posts.date_creation, '%d/%m/%Y à %H:%i:%s') AS date, posts.likes, 
@@ -32,7 +32,7 @@ exports.getAllPosts = (req, res, next) => {
     }
 }
 
-//Suppression d'un post :
+// Suppression d'un post :
 exports.deletePost = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'serBsSjzVclhImFAF6UNLCHlH6pvh3Fr');
@@ -53,7 +53,7 @@ exports.deletePost = (req, res, next) => {
     }
 }
 
-//Recuperation de tous les commentaires :
+// Recuperation de tous les commentaires :
 exports.getAllComments = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'serBsSjzVclhImFAF6UNLCHlH6pvh3Fr');
@@ -75,7 +75,7 @@ exports.getAllComments = (req, res, next) => {
     }
 }
 
-//Suppression d'un commentaire :
+// Suppression d'un commentaire :
 exports.deleteComment = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'serBsSjzVclhImFAF6UNLCHlH6pvh3Fr');

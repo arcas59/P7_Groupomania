@@ -6,10 +6,10 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
 
-//Controlleurs :
+// Controlleurs :
 const userCtrl = require('../controllers/users');
 
-//Routes :
+// Routes :
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
 router.get('/profile/:id', auth, userCtrl.seeAProfile);

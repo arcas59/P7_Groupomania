@@ -11,7 +11,7 @@ const userRoutes = require('./routes/users')
 const postRoutes = require('./routes/posts')
 const modoRoutes = require('./routes/modos')
 
-//ID de connection a la Base de Donnée:
+// ID de connection a la Base de Donnée:
 const connectdb = require('./database/connection-db');
 
 // Connection a la Base de Donnée

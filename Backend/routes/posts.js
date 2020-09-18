@@ -1,4 +1,4 @@
-//plugin Npm Node.js
+// Plugin Npm Node.js
 const express = require('express');
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.patch('/:id', auth, postsCtrl.updatePost);
 router.delete('/:id', auth, postsCtrl.deletePost); 
 
 
-//Les routes concernant les commantaires:
+// Les routes concernant les commantaires:
  
 router.get('/:id/comments', auth, postsCtrl.getComments);
 router.post('/:id/comments', auth, postsCtrl.createComment);
