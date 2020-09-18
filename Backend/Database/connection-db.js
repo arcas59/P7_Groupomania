@@ -1,8 +1,8 @@
 // Plugin Npm Node.js MySql
-var mysql = require('mysql');
+let mysql = require('mysql');
 
 // Création de la connexion entre le serveur et la base de donnée :
-var connectdb = mysql.createConnection({
+let connectdb = mysql.createConnection({
   database: 'groupomania',
   host: "localhost",
   user: "root",
