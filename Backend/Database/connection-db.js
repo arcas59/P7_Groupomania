@@ -3,7 +3,7 @@ let mysql = require('mysql');
 
 // Création de la connexion entre le serveur et la base de donnée :
 let connectdb = mysql.createConnection({
-  database: 'groupomania',
+  database: 'bd_groupomania',
   host: "localhost",
   user: "root",
   password: ""
