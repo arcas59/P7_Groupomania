@@ -1,6 +1,4 @@
-// Plugin http 
 const http = require('http');
-// Import de l'app.js
 const app = require('./app');
 
 const normalizePort = val => {
@@ -14,40 +12,36 @@ const normalizePort = val => {
   }
   return false;
 };
-
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const errorHandler = error => {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== 'écoute') {
     throw error;
   }
-
   const address = server.address();
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
-
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges.');
+      console.error(bind + " il vous faut des droits d'administrateurs plus important.");
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use.');
+      console.error(bind + ' est dejà en utilisation.');
       process.exit(1);
       break;
     default:
       throw error;
   }
 };
-// Création du serveur
+
 const server = http.createServer(app);
 
 server.on('error', errorHandler);
-
 server.on('listening', () => {
   const address = server.address();
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
-  console.log('Listening on ' + bind);
+  console.log('Le serveur est utilisé sur ' + bind);
 });
 
 server.listen(port);
