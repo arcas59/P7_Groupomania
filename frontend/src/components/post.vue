@@ -205,7 +205,8 @@ export default {
 .message {
     font-weight: bold;
     margin-bottom: 1rem;
-    border-bottom: 5px inset #fd2d01 ;
+    border: 10px outset rgba(253,45,1,0.73);
+    border-radius: 13px 31px 0px 40px;
 }
 .commentForm {
     display:flex; 
