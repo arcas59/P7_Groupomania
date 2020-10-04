@@ -1,39 +1,40 @@
-// Plugin Npm Node.js
 const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-
-// Utilisation du Framework Express
+const mysql = require('mysql');
 const app = express();
+const bodyParser = require('body-parser');
+const bdd = require('./mysqlConfig'); 
 
-// Routes 
-const userRoutes = require('./routes/users')
-const postRoutes = require('./routes/posts')
-const modoRoutes = require('./routes/modos')
+const userRoutes = require('./routes/user');
+const wallRoutes = require('./routes/wall');
+const profileRoutes = require('./routes/profile');
+const dashboardRoutes = require('./routes/dashboard');
 
-// ID de connection a la Base de Donnée:
-const connectdb = require('./database/connection-db');
+var helmet = require('helmet');
+app.use(helmet());
 
-// Connection a la Base de Donnée
-app.connect(connectdb);
-
-// Middleware pour les headers de requêtes et éviter les erreurs CORS
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  next();
-});
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
 
-// Rend les données du corps de la requête exploitable
-app.use(bodyParser.json());
+app.use(express.static('./images/'));
 
-// Chemin virtuel pour les fichiers statiques tel que nos images
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(bodyParser.json())
 
-// Routes attendues pour les differentes API
-app.use('/api/auth', userRoutes)
-app.use('/api/posts', postRoutes)
-app.use('/api/modo', modoRoutes)
+//Connexion BDD
+bdd.connect(function(err){
+if(!err) {
+    console.log("La base de donnée groupomaniadb est connectée !");
+} else {
+    console.log("Erreur de connection avec la base de donnée groupomaniadb...");
+}
+})
+
+app.use('/user/', userRoutes);
+app.use('/wall/', wallRoutes);
+app.use('/profile/', profileRoutes);
+app.use('/dashBoard/', dashboardRoutes);
 
 module.exports = app;
