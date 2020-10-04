@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 30 sep. 2020 à 00:11
+-- Généré le : Dim 04 oct. 2020 à 18:38
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Comments`
+-- Structure de la table `comments`
 --
 
 DROP TABLE IF EXISTS `comments`;
@@ -35,25 +35,46 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `message` varchar(100) NOT NULL DEFAULT '',
   `idAuteur` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `Comments`
+-- Déchargement des données de la table `comments`
 --
 
 INSERT INTO `comments` (`id`, `idPost`, `auteur`, `message`, `idAuteur`) VALUES
-(25, 54, 'utilisateur1', 'Merci', 47),
-(26, 55, 'utilisateur2', 'Hahaha', 48),
-(27, 54, 'utilisateur2', 'Ya plus qua', 48),
-(28, 56, 'utilisateur3', 'LOL', 49),
-(29, 55, 'utilisateur3', 'Grave ', 49),
-(30, 54, 'utilisateur3', 'Salut', 49),
-(31, 57, 'utilisateur4', 'Happy gif day', 50),
-(32, 56, 'utilisateur4', 'Je valide ', 50),
-(33, 55, 'utilisateur4', 'Allleeeer', 50),
-(34, 54, 'utilisateur4', 'Salut merci', 50),
-(35, 55, 'administrateur', 'test', 46),
-(36, 59, 'administrateur', 'et si je poste avec auth', 46);
+(37, 60, 'arcas', 'Premier à poster ', 52),
+(38, 60, 'Luc59', 'Zut tu m\'as devancé lol', 53),
+(39, 60, 'kelly59', 'Bonjour à vous deux !', 54),
+(40, 61, 'kelly59', 'Je crois que l\'on à dejà travaillé ensemble sur un projet Luc !', 54),
+(41, 62, 'Anna59', 'Mowawawawa, j\'adore les chats Kelly !', 55),
+(42, 61, 'Anna59', 'Bonjour Luc !', 55),
+(43, 60, 'Anna59', 'Vous êtes dingues lol', 55),
+(44, 60, 'Sacha59', 'hahahahaha', 56),
+(45, 63, 'Sacha59', 'Coooooool', 56),
+(46, 61, 'Sacha59', 'Hé hé hé, salut !', 56),
+(47, 62, 'Sacha59', 'J\'adore les chats aussi...', 56),
+(48, 62, 'Sacha59', 'J\'en ai trois à la maison hi hi', 56),
+(49, 65, 'Sacha59', 'Bienvenue parmi nous Andréa', 56),
+(50, 65, 'Andrea59', 'Merci Sacha !', 57),
+(51, 64, 'Andrea59', 'C\'est vraiment cool comme concept', 57),
+(52, 63, 'Andrea59', 'Trop marrant ton chat Anna', 57),
+(53, 62, 'Andrea59', 'Moi je préfère les chiens ', 57),
+(54, 61, 'Andrea59', 'Bonjour Luc, ravie de te rencontrer par gif', 57),
+(55, 60, 'Andrea59', 'Il va devenir mythique ce premier post', 57),
+(56, 65, 'arcas', 'On va pouvoir communiquer de façon plus cool ici', 52),
+(57, 64, 'arcas', 'Vive les Gifs !', 52),
+(58, 63, 'arcas', 'C\'est normal si je suis hypnotisé par ce gif ?', 52),
+(59, 62, 'arcas', 'Vraiment cool ce chat ', 52),
+(60, 61, 'arcas', 'Coucou Luc !', 52),
+(61, 65, 'Luc59', 'C\'est vraiment top comme idée !', 53),
+(62, 64, 'Luc59', 'Breaking Bad, je suis trop fan !', 53),
+(63, 63, 'Luc59', 'Il faudra faire pareille dans les bureaux lundi lol', 53),
+(64, 62, 'Luc59', 'Moi, le vendredi à 16h00 ', 53),
+(65, 65, 'Pierre59', 'Bonjour à toutes et tous !', 58),
+(66, 65, 'Pierre59', 'On va passer des bons moments ici je crois bien !', 58),
+(67, 64, 'Pierre59', 'Le début d\'une grande aventure !', 58),
+(69, 66, 'admin', 'Coucou Pierre !', 60),
+(70, 66, 'arcas', 'Trop fort, l\'Admin qui répond à Pierre. Petit chanceux !', 52);
 
 -- --------------------------------------------------------
 
@@ -70,19 +91,20 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `nbComments` int(11) DEFAULT '0',
   `isFlagged` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
 INSERT INTO `posts` (`id`, `authorId`, `image`, `message`, `nbComments`, `isFlagged`) VALUES
-(54, 46, 'http://localhost:3000/posts/tenor.gif1599743496215.gif', 'Bienvenue sur le réseau social de lentreprise ', 0, 0),
-(55, 47, 'http://localhost:3000/posts/giphy.gif1599743778074.gif', 'Quand le jour de paye arrive', 0, 0),
-(56, 48, 'http://localhost:3000/posts/giphycoffee.gif1599743945610.gif', 'Première chose en arrivant le matin', 0, 0),
-(57, 49, 'http://localhost:3000/posts/giphyday.gif1599744637842.gif', 'Happy gif day ', 0, 0),
-(58, 47, 'http://localhost:3000/posts/tenor_(1).gif1599746083644.gif', 'Quand je fais un test avec des regex !?$€', 0, 1),
-(59, 46, 'http://localhost:3000/posts/tenor_(1).gif1599755594232.gif', 'test auth', 0, 1);
+(60, 52, 'http://localhost:3000/posts/bonjour21.gif1601587642943.gif', 'Heureux de faire partie de ce nouveau projet mes chers collègues', 0, 0),
+(61, 53, 'http://localhost:3000/posts/bonjour3.gif1601720467927.gif', 'Bonjour tous le monde !!!', 0, 0),
+(62, 54, 'http://localhost:3000/posts/chat3.gif1601721646918.gif', 'Cool comme initiative !', 0, 0),
+(63, 55, 'http://localhost:3000/posts/chat4.gif1601723173637.gif', 'Je crois que je vais passer du temps ici !', 0, 0),
+(64, 56, 'http://localhost:3000/posts/jarrive.gif1601730747502.gif', 'Attention, j\'arrive aussi sur Groupomania !!!', 0, 0),
+(65, 57, 'http://localhost:3000/posts/howimeetyourmother.gif1601731548209.gif', 'Woaaaaaaw, c\'est top ici ! C\'est trop cool pour échanger !', 0, 0),
+(66, 58, 'http://localhost:3000/posts/coucou.gif1601821704137.gif', 'Coucou tous le monde !!!', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -101,18 +123,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `avatar` varchar(255) NOT NULL DEFAULT 'http://localhost:3000/profiles/defaultUser.png',
   `role` varchar(20) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `pseudo`, `email`, `password`, `avatar`, `role`) VALUES
-(46, 'administrateur', 'administrateur', 'administrateur', 'mickael.vermand@gmail.com', '$2b$10$hLvwn1Cy8gJxZl62OPEvUuoiQYiY7sm9kIKJ7BB8tqV4JRLVWlYh6', 'http://localhost:3000/profiles/avatar3.png1599743463483.png', 'admin'),
-(47, 'Andre', 'Maurice', 'utilisateur1', 'test@test.com', '$2b$10$GAMP25FvBDuKx9h.DOJ4feleZOzQZFOpWeWJeQp1iS4ovrlnuG.5O', 'http://localhost:3000/profiles/avatar2.jpg1599743745672.jpg', 'user'),
-(48, 'Pierre', 'Gilles', 'utilisateur2', 'test2@test.com', '$2b$10$SMC.m0gHerBBcooToE0A8.hiTyNgUHxINAEEls4eSrONlQ/vbvUSS', 'http://localhost:3000/profiles/avatar4.png1599743970233.png', 'user'),
-(49, 'utilisateur3', 'utilisateur3', 'utilisateur3', 'test3@test.com', '$2b$10$KfpSTKjGuE.SS4y2p82xAOCLN9qqqbyBUvRFzlqTK8FEMUE5SMW0q', 'http://localhost:3000/profiles/avatar1.jpeg1599744589937.jpg', 'user'),
-(50, 'Jacques', 'Henry', 'utilisateur4', 'test4@gmail.com', '$2b$10$gvW4TQUT3tl7Wx/X1w3O7uLBb.BgrujcAt5.OTHE8ihPQc0YbXasO', 'http://localhost:3000/profiles/avatar5.png1599745635854.png', 'user');
+(52, 'Ribeiro', 'Adrien', 'arcas', 'ADRIENRIB59@HOTMAIL.FR', '$2b$10$S2Hsrb.gJKcyOrAV689gzu.eaehlG4NXB00YvFneiu45dPHwa3Rl6', 'http://localhost:3000/profiles/Adrien.jpg1601652869258.jpg', 'user'),
+(53, 'Rotario', 'Luc', 'Luc59', 'luc@hotmail.fr', '$2b$10$gA08jEJ6pfCB1/T.F9aJi.TadCsjydDldlyGdwDdNlplXtEvsjbmO', 'http://localhost:3000/profiles/Luc1.jpg1601654080046.jpg', 'user'),
+(54, 'Souza', 'Kelly', 'kelly59', 'kelly59@hotmail.fr', '$2b$10$mOWslYLciBlzWPpv71Um4.7qh45TdQDDJuli.5aAG14Lrjg35Stb2', 'http://localhost:3000/profiles/Photok.jpg1601720688160.jpg', 'user'),
+(55, 'Pierry', 'Anna', 'Anna59', 'Anna59@hotmail.fr', '$2b$10$xWPOJT03wcLGYDclK2l9ouv/PYUnC52YCEeCwk6nW/f4J91Zn0nMu', 'http://localhost:3000/profiles/anna.jpg1601723073001.jpg', 'user'),
+(56, 'Sertaud', 'Sacha', 'Sacha59', 'sacha59@hotmail.fr', '$2b$10$meScCHJUyt1KQco8sMO9duwrBvtsM./W22qSUFY2z.bMSCu5DetYO', 'http://localhost:3000/profiles/sacha.jpg1601724300441.jpg', 'user'),
+(57, 'Velasqueze', 'Andréa', 'Andrea59', 'andrea59@hotmail.fr', '$2b$10$iz76SmhBlQIepDGdav2Yw.bu.DKr6EC6orYu8w8bu1zBiiIIElnb2', 'http://localhost:3000/profiles/andrea.jpg1601731115289.jpg', 'user'),
+(58, 'Turan', 'Pierre', 'Pierre59', 'pierre59@hotmail.fr', '$2b$10$.sZViUw6z4TJhx5dbXyOz.jQibGOgM6EXnc88FXr4U4N5bbmNjuxu', 'http://localhost:3000/profiles/pierre.jpg1601821296124.jpg', 'user'),
+(60, 'admin', 'admin', 'admin', 'admin@groupomania.com', '$2b$10$3Ovv/11.osktYeRt9mfTxeXTi285X4kQP2v5dBb97FKpRU7pwghI2', 'http://localhost:3000/profiles/admin.jpg1601827381139.jpg', 'admin'),
+(61, 'Rarut', 'Nelson', 'Nelson59', 'Nelson59@hotmail.fr', '$2b$10$Lm.wiceNcZkIixQW35Rjvu/84x83eplst.2eDtShNOyCZCaO3VRaW', 'http://localhost:3000/profiles/defaultUser.png', 'user');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
