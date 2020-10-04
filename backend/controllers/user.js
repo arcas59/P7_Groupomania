@@ -1,6 +1,7 @@
 const bdd = require('../mysqlConfig');
 const bcrypt = require('bcrypt'); 
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 exports.signup = (req, res, next) => {
     let user = req.body; 
@@ -17,6 +18,13 @@ exports.signup = (req, res, next) => {
     if(verification.every(Boolean)) {
         bcrypt.hash(user.password, 10)
         .then(hash => {
+            // Chiffrement de l'email 
+            key = "clechiffrementgroupomania";
+            cipher = crypto.createCipher('aes192', key)
+            cipher.update(req.body.email, 'binary', 'hex')
+            encodedString = cipher.final('hex')
+            // Enregistrement des données de l'utilisateur
+            user.email = encodedString;
             user.password = hash; 
             bdd.query('SELECT * from users WHERE pseudo="'+user.pseudo+'" OR email="'+user.email+'"', (err, result) => { // Vérification si utilisateur ou email existe déjà
                 if(err) throw err; 
