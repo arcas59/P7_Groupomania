@@ -1,0 +1,19 @@
+#bgContent {
+    background-color: white;
+    background-size: cover;
+    z-index: 1;
+    height: 93vh;
+}
+#content {
+    padding: 1rem; 
+    border: 1px solid rgb(121, 111, 111);
+    z-index:2;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(255,255,255, 0.8);
+    position: absolute;
+    width: 70%;
+    left:15%;
+    top:15%;
+    overflow: scroll;
+    height: 75vh;
+}
