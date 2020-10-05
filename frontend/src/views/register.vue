@@ -4,44 +4,44 @@
 
   </div>
   <div id="content">
-    <h1> S'incrire </h1>
+    <h1> Créez votre compte </h1>
 <form>
     <div class="alert" :class="{'alert-danger': isAlert, 'alert-success': !isAlert}" v-if="errorMessage != ''">{{ errorMessage }}</div>
     <div class="form-group" :class="{invalid:$v.nomUtilisateur.$error}">
-    <label for="nomUtilisateur">Nom d'utilisateur</label> <br>
+    <label for="nomUtilisateur">Pseudo :</label> <br>
     <input type="text" placeholder="Nom d'utilisateur" id="nomUtilisateur" class="form-control" v-model="nomUtilisateur" @blur="$v.nomUtilisateur.$touch()">
     <small v-if="!$v.nomUtilisateur.minLength" id="emailHelp" class="form-text">Le nom d'utilisateur doit contenir au moins 2 caractères</small>
     <small v-if="!$v.nomUtilisateur.syntaxe && nomUtilisateur != ''" id="emailHelp" class="form-text">Le nom d'utilisateur contient des caractères non autorisés</small>
     </div>
     <div class="form-group" :class="{invalid:$v.nom.$error}">
-    <label for="nom">Nom</label> <br>
+    <label for="nom">Nom :</label> <br>
     <input type="text" placeholder="Nom" id="nom" class="form-control" v-model="nom" @blur="$v.nom.$touch()">
     <small v-if="!$v.nom.minLength" id="emailHelp" class="form-text">Le nom doit contenir au moins 2 caractères</small>
     <small v-if="!$v.nom.syntaxe && nom != ''" id="nomHelp" class="form-text">Le nom contient des caractères non autorisés</small>
   </div>
   <div class="form-group" :class="{invalid:$v.prenom.$error}">
-    <label for="prenom">Prénom</label> <br>
+    <label for="prenom">Prénom :</label> <br>
     <input type="text" placeholder="Prénom" id="prenom" class="form-control" v-model="prenom" @blur="$v.prenom.$touch()">
     <small v-if="!$v.prenom.minLength" id="emailHelp" class="form-text">Le prénom doit contenir au moins 2 caractères</small>
     <small v-if="!$v.prenom.syntaxe && prenom != ''" id="nomHelp" class="form-text">Le prénom contient des caractères non autorisés</small>
   </div>
   <div class="form-group" :class="{invalid: $v.email.$error}">
-    <label for="email">Adresse e-mail</label> <br>
+    <label for="email">Email :</label> <br>
     <input type="email" placeholder="Adresse e-mail" id="email" class="form-control" v-model="email" @blur="$v.email.$touch()">
     <small v-if="!$v.email.email" id="emailHelp" class="form-text">L'adresse email fournie est invalide. Merci de respecter le format nom@hebergeur.extension</small>
   </div>
   <div class="form-group" :class="{invalid: $v.password.$error}">
-    <label for="password">Mot de passe</label> <br>
+    <label for="password">Mot de passe :</label> <br>
     <input type="password" placeholder="Mot de passe" id="password" class="form-control" v-model="password" @blur="$v.password.$touch()">
     <small v-if="!$v.password.minLength" id="emailHelp" class="form-text">Le mot de passe doit contenir au moins 2 caractères</small>
     <small v-if="!$v.password.syntaxe && password != ''" id="nomHelp" class="form-text">Le password contient des caractères non autorisés</small>
   </div>
   <div class="form-group" :class="{invalid: $v.confirmation.$error}">
-    <label for="passwordConfirm">Confirmation du mot de passe</label> <br>
+    <label for="passwordConfirm">Confirmation du mot de passe :</label> <br>
     <input type="password" placeholder="Confirmez le mot de passe" id="passwordConfirm" class="form-control" v-model="confirmation" @blur="$v.confirmation.$touch()">
     <small v-if="!$v.confirmation.sameAsPassword && confirmation != ''" id="nomHelp" class="form-text">La confirmation n'est pas identique au mot de passe {{ $v.confirmation.syntaxe }}</small>
   </div>
-    <button class="btn btn-primary" :disabled="$v.$invalid" @click.prevent="signUpUser">S'inscrire</button>
+    <button class="btn btn-primary" :disabled="$v.$invalid" @click.prevent="signUpUser">Créer mon compte</button>
   </form>
   </div>
   
@@ -147,7 +147,7 @@ $primary: #fd2d01;
 #content {
   width: 80%;
   left:10%;
-  top:15%;
+  top:5%;
   overflow: scroll;
   height: 100vh;
   overflow-x: hidden; 

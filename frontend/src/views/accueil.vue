@@ -2,14 +2,14 @@
 <div>
   <div id="bgContent">
     <div id="conteneur">
-      <div id="content" v-if="loggedIn">
+      <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="loggedIn">
         <img id="logo" src="../assets/groupomanialogo.png" class="d-inline-block align-top" alt="bug">
         <p>Vous êtes connecté sur le profil de {{ this.$store.state.pseudoUser }}</p>
         <button class="btn btn-outline-danger" @click.prevent="logout"> Se deconnecter </button>
       </div>
     </div>
   </div>
-        <div id="content" v-if="!loggedIn">
+        <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="!loggedIn">
         <img id="logo" src="../assets/groupomanialogo.png" class="d-inline-block align-top" alt="bug">
          <div class="alert" :class="{'alert-danger': isAlert, 'alert-success': !isAlert}" v-if="errorMessage != ''">{{ errorMessage }}</div>
         <form>
@@ -123,10 +123,9 @@ export default {
   overflow-x: hidden; 
   overflow-y: hidden; 
   margin-left: -5%;
-}
-input
-{
   border: none;
+  overflow-x: hidden; 
+  overflow-y: hidden; 
 }
 #conteneur {
   display:flex;
@@ -135,8 +134,13 @@ input
   align-items: center;
   width: 100%;
 }
-h1 {
 
+input
+{
+  border: none;
+}
+
+h1 {
   margin-bottom: 3rem; 
 }
 #accueil {
@@ -154,6 +158,7 @@ h1 {
     color:red;
   }
 }
+
 @media all and(max-width:700px) {
   #content {
     width: 80vw;
@@ -162,4 +167,5 @@ h1 {
     top:20%;
   }
 }
+
 </style>
