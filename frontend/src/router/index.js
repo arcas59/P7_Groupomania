@@ -1,57 +1,57 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Inscription from '../views/Inscription.vue'
-import Wall from '../views/Wall.vue'
-import Profile from '../views/Profile.vue'
-import Dashboard from '../views/Dashboard.vue'
-import Users from '../views/Users.vue'
+import accueil from '../views/accueil.vue'
+import register from '../views/register.vue'
+import filactualite from '../views/filactualite.vue'
+import profil from '../views/profil.vue'
+import admin from '../views/admin.vue'
+import users from '../views/users.vue'
 
-import DashBoardPosts from '../components/DashBoardPosts.vue'
-import DashBoardUsersList from '../components/DashBoardUsersList.vue'
+import adminPosts from '../components/adminPosts.vue'
+import adminUsers from '../components/adminUsers.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'accueil',
+    component: accueil,
     title: 'Groupomania'
   },
   {
-    path: '/Inscription',
-    name: 'Inscription',
-    component: Inscription,
-    title: 'Groupomania - inscription'
+    path: '/register',
+    name: 'register',
+    component: register,
+    title: 'Groupomania - register'
   },
   {
-    path:'/Wall',
-    name: 'Wall',
-    component: Wall
+    path:'/filactualite',
+    name: 'filactualite',
+    component: filactualite
   },
   {
-    path:'/Users/:id',
-    name: 'Users',
-    component: Users
+    path:'/users/:id',
+    name: 'users',
+    component: users
   },
   {
-    path:'/Profile',
-    name: 'Profile',
-    component: Profile
+    path:'/profil',
+    name: 'profil',
+    component: profil
   },
   {
-    path:'/Dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
+    path:'/admin',
+    name: 'admin',
+    component: admin,
     children: [
       {
-        path:'/Dashboard/Posts',
-        component: DashBoardPosts
+        path:'/admin/Posts',
+        component: adminPosts
       },
       {
-        path:'/Dashboard/UsersList',
-        component: DashBoardUsersList
+        path:'/admin/UsersList',
+        component: adminUsers
       }
     ]
   }

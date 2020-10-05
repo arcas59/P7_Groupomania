@@ -3,15 +3,15 @@
     <h1 class="titre1">Espace Admin</h1>
     <div class="menuAdmin">
       <div class="menu1">
-        <router-link to='/Dashboard/Posts'> <button class="btn btn-outline-danger">Voir les posts signalés</button> </router-link>
+        <router-link to='/admin/Posts'> <button class="btn btn-outline-danger">Voir les posts signalés</button> </router-link>
       </div>
       <div class="menu2">
-        <router-link to='/Dashboard/UsersList'> 
+        <router-link to='/admin/UsersList'> 
         <button 
         class="btn btn-outline-danger">Liste des utilisateurs </button></router-link>
       </div>
     </div>
-    <div class="contenuDashBoard">
+    <div class="contenuadmin">
       <router-view></router-view>
     </div>
   </div>
@@ -38,7 +38,7 @@
 {
   margin-top: 50px;
 }
-.contenuDashBoard
+.contenuadmin
 {
   margin-top: 50px;;
 }

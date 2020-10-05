@@ -10,16 +10,16 @@
               <router-link class="nav-link" style="color: black" to="/">Accueil</router-link>
             </li>
           <li class="nav-item">
-            <router-link class="nav-link" style="color: black" to="/Inscription" v-if="!(this.$store.state.isLogged)">S'inscrire</router-link>
+            <router-link class="nav-link" style="color: black" to="/register" v-if="!(this.$store.state.isLogged)">S'inscrire</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" style="color: black" to="/Wall" v-if="this.$store.state.isLogged"> Fil d'actualité</router-link>
+            <router-link class="nav-link" style="color: black" to="/filactualite" v-if="this.$store.state.isLogged"> Fil d'actualité</router-link>
           </li>
           <li class="nav-item">
-             <router-link class="nav-link" style="color: black" to="/Profile" v-if="this.$store.state.isLogged">Votre profil</router-link>
+             <router-link class="nav-link" style="color: black" to="/profil" v-if="this.$store.state.isLogged">Profil</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" style="color: black" to="/Dashboard" v-if="this.$store.state.roleUser == 'admin'"> Dashboard </router-link>
+            <router-link class="nav-link" style="color: black" to="/admin" v-if="this.$store.state.roleUser == 'admin'"> Admin </router-link>
           </li>
           </ul>
           <div class="social-part">

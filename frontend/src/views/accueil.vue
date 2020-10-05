@@ -74,7 +74,7 @@ export default {
           this.$store.state.userId = response.data.userId;
           this.isAlert = false;
           this.$store.dispatch('getInfos');
-          this.$router.push('Wall');
+          this.$router.push('filactualite');
         })
         .catch(error => { 
           this.errorMessage = error.response.data.message;
