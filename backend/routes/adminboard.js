@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 
-const dashBoardControllers = require('../controllers/dashboard');
+const dashBoardControllers = require('../controllers/adminboard');
 
 router.get('/flaggedPosts/', auth, admin, dashBoardControllers.getFlaggedPosts);
 router.put('/flagPost/:id', auth, admin, dashBoardControllers.flagPost);

@@ -102,7 +102,7 @@ export default {
                     auteur: this.$store.state.pseudoUser,
                     idAuteur: this.$store.state.userId
                 }
-                axios.post('http://localhost:3000/wall/post/comment', comment , { 
+                axios.post('http://localhost:3000/fil/post/comment', comment , { 
                         headers: {
                             'Authorization': `token ${this.$store.state.tokenToCheck}`
                         }
@@ -127,7 +127,7 @@ export default {
             }
         },
         displayComments(id) {
-            axios.get('http://localhost:3000/wall/comment/get/'+id , { 
+            axios.get('http://localhost:3000/fil/comment/get/'+id , { 
                         headers: {
                             'Authorization': `token ${this.$store.state.tokenToCheck}`
                         }

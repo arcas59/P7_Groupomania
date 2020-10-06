@@ -56,7 +56,7 @@ export default {
                     formData.append ("authorId", this.$store.state.userId)
                     formData.append("image", file);
                     formData.append("message", message);
-                    axios.post('http://localhost:3000/wall/post/', formData, { 
+                    axios.post('http://localhost:3000/fil/post/', formData, { 
                         headers: {
                             'Content-Type': 'multipart/form-data',
                             'Authorization': `token ${this.$store.state.tokenToCheck}`
@@ -89,7 +89,7 @@ export default {
             }
         },
         displayAllPosts(){
-            axios.get('http://localhost:3000/wall/getAll/',{ headers: {
+            axios.get('http://localhost:3000/fil/getAll/',{ headers: {
                 'Authorization': `token ${this.$store.state.tokenToCheck}`
                 }})
             .then(response => {

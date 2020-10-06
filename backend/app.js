@@ -5,9 +5,9 @@ const bodyParser = require('body-parser');
 const bdd = require('./mysqlConfig'); 
 
 const userRoutes = require('./routes/user');
-const wallRoutes = require('./routes/wall');
+const filRoutes = require('./routes/filactualite');
 const profileRoutes = require('./routes/profile');
-const dashboardRoutes = require('./routes/dashboard');
+const adminboardRoutes = require('./routes/adminboard');
 
 var helmet = require('helmet');
 app.use(helmet());
@@ -33,8 +33,8 @@ if(!err) {
 })
 
 app.use('/user/', userRoutes);
-app.use('/wall/', wallRoutes);
+app.use('/fil/', filRoutes);
 app.use('/profile/', profileRoutes);
-app.use('/dashBoard/', dashboardRoutes);
+app.use('/dashBoard/', adminboardRoutes);
 
 module.exports = app;
