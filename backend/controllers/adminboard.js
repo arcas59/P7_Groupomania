@@ -6,7 +6,7 @@ exports.getFlaggedPosts = (req, res, next) => {
         if(err) throw (err);
         return res.status(200).json({ resultat });
     })
-}
+};
 
 exports.flagPost = (req,res,next) => {
 
@@ -32,4 +32,4 @@ exports.flagPost = (req,res,next) => {
                 }
             }
         })
-}
+};

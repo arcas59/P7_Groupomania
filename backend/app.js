@@ -23,7 +23,7 @@ app.use(express.static('./images/'));
 
 app.use(bodyParser.json())
 
-//Connexion BDD
+//Connexion à la Base de donnée Groupomaniadb
 bdd.connect(function(err){
 if(!err) {
     console.log("La base de donnée groupomaniadb est connectée !");

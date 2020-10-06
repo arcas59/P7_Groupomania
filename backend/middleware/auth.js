@@ -21,4 +21,4 @@ module.exports = (req, res, next) => {
         console.log(error);
         console.log('Requete non authentifiée');
     }
-}
+};

@@ -43,7 +43,7 @@ exports.signup = (req, res, next) => {
     else {
         return res.status(500).json({ message: 'Données transmises non correctes '});
     }
-}
+};
 
 exports.login = (req, res, next) => {
     let champsSyntaxe = /^[a-z A-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ0-9-]{2,}$/;
@@ -82,7 +82,7 @@ exports.login = (req, res, next) => {
     else {
         return res.status(500).json({ message: 'Données transmises non correctes '});
     }
-}
+};
 
 exports.getInfos = (req, res, next) => {
     bdd.query('SELECT * FROM users WHERE id="'+req.params.id+'"', (err, resultat) => {
@@ -90,7 +90,7 @@ exports.getInfos = (req, res, next) => {
         console.log(resultat);
         return res.status(200).json(resultat);
     })
-}
+};
 
 exports.getAllPosts = (req, res, next) => {
     let IdParsed = parseInt(req.params.id, 10)
@@ -100,11 +100,11 @@ exports.getAllPosts = (req, res, next) => {
         if(err) throw err; 
         return res.status(200).json(resultat);
     })
-}
+};
 
 exports.getAllUsers = (req, res, next) => {
     bdd.query('SELECT * FROM users', (err, resultat) => {
         if(err) throw err;
         return res.status(200).json(resultat);
     })
-}
+};

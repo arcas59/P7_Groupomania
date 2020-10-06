@@ -18,7 +18,7 @@ exports.updateAvatar = (req, res, next) => {
         if(err) throw err;
         return res.status(201).json({ message: 'Avatar changé '})
     })
-}
+};
 
 exports.changePassword = (req, res, next) => {
     let syntaxPassword = /^[a-z A-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ0-9-]{2,100}$/;
@@ -44,7 +44,7 @@ exports.changePassword = (req, res, next) => {
         } else {
             return res.status(500).json({ message: 'Erreur dans les données transmises'});
         }
-}
+};
 
 exports.deleteAccount = (req,res,next) => {
     let syntaxPassword = /^[a-z A-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ0-9-]{2,100}$/;
@@ -76,4 +76,4 @@ exports.deleteAccount = (req,res,next) => {
     } else {
         return res.status(500).json({ message: 'Erreur dans les données transmises '});
     }
-}
+};
