@@ -8,6 +8,4 @@ var bdd = mysql.createConnection({
   database : 'groupomaniadb'
 });
 
-console.log("Retour de la Database : ", bdd)
-
 module.exports = bdd;
