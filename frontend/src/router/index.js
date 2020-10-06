@@ -5,7 +5,7 @@ import register from '../views/register.vue'
 import filactualite from '../views/filactualite.vue'
 import profil from '../views/profil.vue'
 import admin from '../views/admin.vue'
-import users from '../views/users.vue'
+import Users from '../views/Users.vue'
 
 import adminPosts from '../components/adminPosts.vue'
 import adminUsers from '../components/adminUsers.vue'
@@ -31,9 +31,9 @@ Vue.use(VueRouter)
     component: filactualite
   },
   {
-    path:'/users/:id',
-    name: 'users',
-    component: users
+    path:'/Users/:id',
+    name: 'Users',
+    component: Users
   },
   {
     path:'/profil',
