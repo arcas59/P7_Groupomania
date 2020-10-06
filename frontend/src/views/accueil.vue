@@ -165,6 +165,7 @@ h1 {
     left: 16%;
     height: 70vh;
     top:20%;
+    margin-top: 40px;
   }
 }
 
