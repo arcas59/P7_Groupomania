@@ -207,7 +207,7 @@ export default {
                 this.$ls.clear();
                 this.$store.commit('LOGOUT');
                 this.$store.commit('CLEAR_STATE');
-                this.$router.push('Home');
+                this.$router.push('/');
             })
             .catch(error => {
                 this.feedbackDeleteAccount = error.response.data.message;
