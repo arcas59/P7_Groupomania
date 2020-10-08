@@ -1,13 +1,10 @@
 <template>
-<div>
-
-    <h3> Posts signalés </h3>
-
-    <div class="container">
-        <Post v-for="(post, postIndex) in posts" :key="post.id" :authorId="post.authorId" :message="post.message" :image="post.image" :index="postIndex" :id="post.id" :isFlagged="post.isFlagged"></Post>
+    <div>
+        <h3> Posts signalés </h3>
+        <div class="container">
+            <Post v-for="(post, postIndex) in posts" :key="post.id" :authorId="post.authorId" :message="post.message" :image="post.image" :index="postIndex" :id="post.id" :isFlagged="post.isFlagged"></Post>
+        </div>
     </div>
-    
-</div>
 </template>
 
 <script>

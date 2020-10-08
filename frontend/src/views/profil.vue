@@ -1,53 +1,55 @@
 <template>
-<div id="containerProfile">
-    <div id="profilBlock">
-        <h1> Votre profil </h1>
-        <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessageAvatar != ''"> {{ feedbackMessageAvatar }}</div>
-        <form>
-            <div class="form-group">
-                <img :src="img.url" alt="Preview avatar" class="previewAvatar">
-                <br><br><label for="avatar">Charger votre photo : </label><br>
-                <input type="file" id="avatar" ref="file" accept="image/*" @change="checkImage()"> <br><br>
-                <button class="btn btn-outline-danger active" :disabled="!imgIsChecked" @click.prevent="changeAvatar">Changer sa photo</button>
+    <div id="containerProfile">
+        <div id="profilBlock">
+            <h1> Votre profil </h1>
+            <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessageAvatar != ''"> {{ feedbackMessageAvatar }}
             </div>
-        </form>
-        <form>
-            <div class="alert" :class="{'alert-success': !isAlertPassword, 'alert-danger': isAlertPassword}" v-if="feedbackMessagePassword != ''"> {{ feedbackMessagePassword }}</div>
-            <div class="form-group" :class="{invalid: $v.typedCurrentPassword.$error}">
-                <label for="passwordActuel">Mot de passe actuel :</label>
-                <input type="password" id="passwordActuel" placeholder="Mot de passe actuel" class="form-control" name="passwordActuel" v-model="typedCurrentPassword" @blur="$v.typedCurrentPassword.$touch()" required>
-                <small v-if="!$v.typedCurrentPassword.syntaxe && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe contient des caractères non autorisés</small>
-                <small v-if="!$v.typedCurrentPassword.minLength && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe actuel contient forcément au moins 8 caractères</small>
-                <small v-if="!$v.typedCurrentPassword.maxLength && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe ne peut contenir au maximum que 60 caractères</small>
+            <form>
+                <div class="form-group">
+                    <img :src="img.url" alt="Preview avatar" class="previewAvatar">
+                    <br><br><label for="avatar">Charger votre photo : </label><br>
+                    <input type="file" id="avatar" ref="file" accept="image/*" @change="checkImage()"> <br><br>
+                    <button class="btn btn-outline-danger active" :disabled="!imgIsChecked" @click.prevent="changeAvatar">Changer sa photo</button>
+                </div>
+            </form>
+            <form>
+                <div class="alert" :class="{'alert-success': !isAlertPassword, 'alert-danger': isAlertPassword}" v-if="feedbackMessagePassword != ''"> {{ feedbackMessagePassword }}
+                </div>
+                <div class="form-group" :class="{invalid: $v.typedCurrentPassword.$error}">
+                    <label for="passwordActuel">Mot de passe actuel :</label>
+                    <input type="password" id="passwordActuel" placeholder="Mot de passe actuel" class="form-control" name="passwordActuel" v-model="typedCurrentPassword" @blur="$v.typedCurrentPassword.$touch()" required>
+                    <small v-if="!$v.typedCurrentPassword.syntaxe && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe contient des caractères non autorisés</small>
+                    <small v-if="!$v.typedCurrentPassword.minLength && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe actuel contient forcément au moins 8 caractères</small>
+                    <small v-if="!$v.typedCurrentPassword.maxLength && typedCurrentPassword != ''" id="emailHelp" class="form-text">Le mot de passe ne peut contenir au maximum que 60 caractères</small>
+                </div>
+                <div class="form-group" :class="{invalid: $v.newPassword.$error}">
+                    <label for="newPassword">Nouveau mot de passe :</label>
+                    <input type="password" id="newPassword" placeholder="Votre nouveau mot de passe" class="form-control" name="newPassword" v-model="newPassword" required @blur="$v.newPassword.$touch()">
+                    <small v-if="!$v.newPassword.syntaxe && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe contient des caractères non autorisés</small>
+                    <small v-if="!$v.newPassword.minLength && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe doit contenir au moins 8 caractères</small>
+                    <small v-if="!$v.newPassword.maxLength && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe ne peut contenir au maximum que 60 caractères</small>
+                </div>
+                <div class="form-group" :class="{invalid: $v.confirmNewPassword.$error}">
+                    <label for="confirmNewPassword">Confirmer le nouveau mot de passe :</label>
+                    <input type="password" id="confirmNewPassword" placeholder="Votre nouveau mot de passe" class="form-control" v-model="confirmNewPassword" required @blur="$v.confirmNewPassword.$touch()">
+                    <small v-if="!$v.confirmNewPassword.sameAsPassword && confirmNewPassword != ''" id="emailHelp" class="form-text">Le mot de passe et la confirmation ne sont pas identiques.</small>
+                </div>
+                    <button class="btn btn-outline-danger active" :disabled="$v.$invalid" @click.prevent="changePassword"> Changer de mot de passe </button>
+            </form>
+            <br> 
+            <button class="btn btn-danger" @click.prevent="displayDeleteMessage = !displayDeleteMessage"> Se désincrire </button>
+            <div class="deleteMessage" v-if="displayDeleteMessage">
+                <h3>Etes vous sûr de vouloir supprimer votre compte ?</h3>
+                <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackDeleteAccount != ''"> {{ feedbackDeleteAccount }}
+                </div>
+                <div class="form-group">
+                    <label for="passwordDeleteAccount">Saisissez votre mot de passe :</label>
+                    <input type="password" id="passwordDeleteAccount" class="form-control" placeholder="Votre mot de passe" v-model="passwordDeleteAccount">
+                    <button class="btn btn-outline-danger active" @click.prevent="deleteAccount"> Supprimer definitivement votre compte </button>
             </div>
-            <div class="form-group" :class="{invalid: $v.newPassword.$error}">
-                <label for="newPassword">Nouveau mot de passe :</label>
-                <input type="password" id="newPassword" placeholder="Votre nouveau mot de passe" class="form-control" name="newPassword" v-model="newPassword" required @blur="$v.newPassword.$touch()">
-                <small v-if="!$v.newPassword.syntaxe && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe contient des caractères non autorisés</small>
-                <small v-if="!$v.newPassword.minLength && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe doit contenir au moins 8 caractères</small>
-                <small v-if="!$v.newPassword.maxLength && newPassword != ''" id="emailHelp" class="form-text">Le mot de passe ne peut contenir au maximum que 60 caractères</small>
-            </div>
-            <div class="form-group" :class="{invalid: $v.confirmNewPassword.$error}">
-                <label for="confirmNewPassword">Confirmer le nouveau mot de passe :</label>
-                <input type="password" id="confirmNewPassword" placeholder="Votre nouveau mot de passe" class="form-control" v-model="confirmNewPassword" required @blur="$v.confirmNewPassword.$touch()">
-                <small v-if="!$v.confirmNewPassword.sameAsPassword && confirmNewPassword != ''" id="emailHelp" class="form-text">Le mot de passe et la confirmation ne sont pas identiques.</small>
-            </div>
-                <button class="btn btn-outline-danger active" :disabled="$v.$invalid" @click.prevent="changePassword"> Changer de mot de passe </button>
-        </form>
-    <br> <button class="btn btn-danger" @click.prevent="displayDeleteMessage = !displayDeleteMessage"> Se désincrire </button>
-
-    <div class="deleteMessage" v-if="displayDeleteMessage">
-        <h3>Etes vous sûr de vouloir supprimer votre compte ?</h3>
-        <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackDeleteAccount != ''"> {{ feedbackDeleteAccount }}</div>
-        <div class="form-group">
-            <label for="passwordDeleteAccount">Saisissez votre mot de passe :</label>
-            <input type="password" id="passwordDeleteAccount" class="form-control" placeholder="Votre mot de passe" v-model="passwordDeleteAccount">
-            <button class="btn btn-outline-danger active" @click.prevent="deleteAccount"> Supprimer definitivement votre compte </button>
         </div>
     </div>
-   </div>
-</div>
-
+    </div>
 </template>
 
 <script>
@@ -215,15 +217,19 @@ export default {
                 })
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-#containerProfile {
+
+#containerProfile 
+{
     width:100%;
     background-color: #ffffff;
 }
-.invalid {
+
+.invalid 
+{
   input {
     border:1px solid red;
     background-color: #ffc9aa;
@@ -236,11 +242,14 @@ export default {
   }
 }
 
-#profilBlock {
+#profilBlock 
+{
     width:70%;
     margin:auto;
 }
-.deleteMessage {
+
+.deleteMessage 
+{
     background-color: #ffc9aa;
     border: 1px solid red;
     border-radius:10px;
@@ -252,7 +261,9 @@ export default {
         margin-bottom: 1rem; 
     }
 }
-.previewAvatar {
+
+.previewAvatar 
+{
     max-width: 300px;
     max-height: 300px;
     border-radius: 50%;

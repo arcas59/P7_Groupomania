@@ -1,34 +1,35 @@
 <template>
-<div>
-  <div id="bgContent">
-    <div id="conteneur">
-      <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="loggedIn">
-        <img id="logo" src="../assets/groupomanialogo.png" class="d-inline-block align-top" alt="bug">
-        <p>Vous êtes connecté sur le profil de {{ this.$store.state.pseudoUser }}</p>
-        <button class="btn btn-outline-danger" @click.prevent="logout"> Se deconnecter </button>
+  <div>
+    <div id="bgContent">
+      <div id="conteneur">
+        <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="loggedIn">
+          <img id="logo" src="../assets/groupomanialogo.png" class="d-inline-block align-top" alt="bug">
+          <p>Vous êtes connecté sur le profil de {{ this.$store.state.pseudoUser }}</p>
+          <button class="btn btn-outline-danger" @click.prevent="logout"> Se deconnecter </button>
+        </div>
       </div>
     </div>
-  </div>
-        <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="!loggedIn">
+      <div id="content" col-lg-4 col-md-6 col-sm-8 col-11 mx-auto v-if="!loggedIn">
         <img id="logo" src="../assets/groupomanialogo.png" class="d-inline-block align-top" alt="bug">
-         <div class="alert" :class="{'alert-danger': isAlert, 'alert-success': !isAlert}" v-if="errorMessage != ''">{{ errorMessage }}</div>
+        <div class="alert" :class="{'alert-danger': isAlert, 'alert-success': !isAlert}" v-if="errorMessage != ''">{{ errorMessage }}
+        </div>
         <form>
           <div class="form-group" :class="{invalid: $v.pseudo.$error}">
-          <label for="pseudo">Votre pseudo: </label>
-          <input type="text" id="pseudo" placeholder="Votre pseudo" class="form-control" v-model="pseudo" @blur="$v.pseudo.$touch()">
-          <small v-if="!$v.pseudo.minLength" class="form-text">Le nom doit contenir au moins 2 caractères</small>
-          <small v-if="!$v.pseudo.syntaxe && pseudo != ''" class="form-text">Votre pseudo contient des caractères non autorisés</small>
+            <label for="pseudo">Votre pseudo: </label>
+            <input type="text" id="pseudo" placeholder="Votre pseudo" class="form-control" v-model="pseudo" @blur="$v.pseudo.$touch()">
+            <small v-if="!$v.pseudo.minLength" class="form-text">Le nom doit contenir au moins 2 caractères</small>
+            <small v-if="!$v.pseudo.syntaxe && pseudo != ''" class="form-text">Votre pseudo contient des caractères non autorisés</small>
           </div>
           <div class="form-group" :class="{invalid: $v.password.$error}">
-          <label for="password">Votre mot de passe:</label>
-          <input type="password" id="password" placeholder="Votre mot de passe" class="form-control" v-model="password" @blur="$v.password.$touch()">
-          <small v-if="!$v.password.minLength" class="form-text">Votre password doit contenir au moins 2 caractères</small>
-          <small v-if="!$v.password.syntaxe && password != ''" class="form-text">Votre mot de passe contient des caractères non autorisés</small>
+            <label for="password">Votre mot de passe:</label>
+            <input type="password" id="password" placeholder="Votre mot de passe" class="form-control" v-model="password" @blur="$v.password.$touch()">
+            <small v-if="!$v.password.minLength" class="form-text">Votre password doit contenir au moins 2 caractères</small>
+            <small v-if="!$v.password.syntaxe && password != ''" class="form-text">Votre mot de passe contient des caractères non autorisés</small>
           </div>
           <button class="btn btn-outline-danger" :disabled="$v.$invalid" @click.prevent="login">Se connecter</button>
         </form>
       </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -104,16 +105,19 @@ export default {
       }
     },
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-#logo {
+
+#logo 
+{
   width:250px;
   height:auto;
 }
 
-#content {
+#content 
+{
   margin-top: -50px;;
   width: 50vw;
   top: 30%;
@@ -127,6 +131,7 @@ export default {
   overflow-x: hidden; 
   overflow-y: hidden; 
 }
+
 #conteneur {
   display:flex;
   flex-direction: row;
@@ -140,13 +145,18 @@ input
   border: none;
 }
 
-h1 {
+h1 
+{
   margin-bottom: 3rem; 
 }
-#accueil {
+
+#accueil 
+{
   margin:auto; 
 }
-.invalid {
+
+.invalid 
+{
   input {
     border:1px solid red;
     background-color: #ffc9aa;
@@ -159,7 +169,8 @@ h1 {
   }
 }
 
-@media all and(max-width:700px) {
+@media all and(max-width:700px) 
+{
   #content {
     width: 80vw;
     left: 16%;

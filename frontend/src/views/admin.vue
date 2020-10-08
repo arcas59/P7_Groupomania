@@ -18,10 +18,13 @@
 </template>
 
 <style lang="scss">
-.about {
+
+.about 
+{
   background-color: #ffffff;
   min-height: 93vh;
 }
+
 .menuAdmin
 {
   text-align: center;
@@ -38,8 +41,10 @@
 {
   margin-top: 50px;
 }
+
 .contenuadmin
 {
   margin-top: 50px;;
 }
+
 </style>

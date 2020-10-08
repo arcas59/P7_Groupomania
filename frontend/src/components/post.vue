@@ -1,6 +1,7 @@
 <template>
     <div class="containerPost">
-        <div class="message"> {{ message }}<a href="#" @click.prevent="flagPost(id, isFlagged);$emit('postflagged', id)" v-if="this.$store.state.roleUser == 'admin'"><img class="warning" src="../assets/flag.png" alt="flag post" width="24" height="24" ></a></div>
+        <div class="message"> {{ message }}<a href="#" @click.prevent="flagPost(id, isFlagged);$emit('postflagged', id)" v-if="this.$store.state.roleUser == 'admin'"><img class="warning" src="../assets/flag.png" alt="flag post" width="24" height="24" ></a>
+        </div>
         <img :src="image" alt="post image" class="imgPost">
         <div class="auteur">
             <img :src="avatarAuteur" width="48" height="48" alt="user Avatar" style="border-radius:100%"><span class="displayAuthor">Posté par <router-link :to="{ name: 'Users', params: { id: authorId }}">{{ Auteur }} </router-link></span>
@@ -8,7 +9,8 @@
         <div class="arrowDisplay">
             <button class="btn btn-outline-danger btn-sm" @click.prevent="addToDisplayForm(index); displayComments(id);">Commentaires</button>
         </div>
-        <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessage != ''"> {{ feedbackMessage }}</div>
+        <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessage != ''"> {{ feedbackMessage }}
+        </div>
         <div class="commentForm" v-if="displayPostComments.includes(index)"> 
             <div class="avatar">
                 <img :src="this.$store.state.avatarUser" width="48" height="48" alt="" style="border-radius:100%">
@@ -25,19 +27,20 @@
                 <div><button class="btn btn-outline-danger btn-sm active" :disabled="$v.$invalid" @click.prevent="postComment(id)">Répondre</button></div>
             </form>
         </div>
-        <br><div v-if="displayPostComments.includes(index)">
-        <div v-for="comment in comments" :key="comment.id" class="commentDisplayer" > 
-            <div class="containerEachComment">
-                <div class="avatarAuteur">
-                    <img :src="comment.avatar" width="48" height="48" alt="avatar User" style="border-radius:100%" >
+        <br>
+        <div v-if="displayPostComments.includes(index)">
+            <div v-for="comment in comments" :key="comment.id" class="commentDisplayer" > 
+                <div class="containerEachComment">
+                    <div class="avatarAuteur">
+                        <img :src="comment.avatar" width="48" height="48" alt="avatar User" style="border-radius:100%" >
+                    </div>
+                    <div class="comment">
+                        <span>
+                            <strong>{{ comment.auteur }}</strong><br>
+                            {{ comment.message}}
+                        </span>
+                    </div>
                 </div>
-                <div class="comment">
-                <span>
-                <strong>{{ comment.auteur }}</strong><br>
-                {{ comment.message}}
-                </span>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -168,7 +171,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.containerPost {
+
+.containerPost 
+{
     margin-top: 2rem;
     width: 40%;
     margin-right:auto;
@@ -185,7 +190,8 @@ export default {
     margin-left: 10px;
 }
 
-.auteur {
+.auteur 
+{
     margin-top:1rem;
     font-size:0.8rem;
     display: flex; 
@@ -202,13 +208,17 @@ export default {
 
     }
 }
-.message {
+
+.message 
+{
     font-weight: bold;
     margin-bottom: 1rem;
     border: 10px outset rgba(253,45,1,0.73);
     border-radius: 13px 31px 0px 40px;
 }
-.commentForm {
+
+.commentForm 
+{
     display:flex; 
     flex-direction: row;
     align-items: center;
@@ -231,7 +241,8 @@ export default {
     }
 }
 
-.invalid {
+.invalid 
+{
     border:1px solid red;
     background-color: #ffc9aa;
   small {
@@ -239,32 +250,38 @@ export default {
   }
 }
 
-.commentDisplayer {
+.commentDisplayer 
+{
     display:flex;
     flex-direction: column;
     text-align:left;
 }
 
-.containerEachComment {
+.containerEachComment 
+{
     display:flex;
     flex-direction: row;
     align-items:center;
     border-bottom: 1px solid lightgray;
 }
 
-.comment {
+.comment 
+{
     margin-left: 1rem;
     margin-bottom: 1rem; 
 }
 
-.imgPost {
+.imgPost 
+{
     max-width: 80%;
     height:auto;
 }
 
-@media all and(max-width:1000px) {
+@media all and(max-width:1000px) 
+{
     .containerPost{
         width: 100%;
     }
 }
+
 </style>

@@ -1,12 +1,11 @@
 <template>
     <div>
-    <h3>Liste des utilisateurs</h3>
-    <div class="container">
-        <div v-for="(user,index) in usersList" :key="index" class="userList"> 
-            <router-link :to="{ name: 'Users', params: { id: user.id }}"> {{ user.pseudo }}</router-link> (Nom: {{ user.nom }} , Prénom: {{ user.prenom}})
+        <h3>Liste des utilisateurs</h3>
+        <div class="container">
+            <div v-for="(user,index) in usersList" :key="index" class="userList"> 
+                <router-link :to="{ name: 'Users', params: { id: user.id }}"> {{ user.pseudo }}</router-link> (Nom: {{ user.nom }} , Prénom: {{ user.prenom}})
+            </div>
         </div>
-    </div>
-
     </div>
 </template>
 
@@ -39,6 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 h3 
 {
     margin-left: auto;

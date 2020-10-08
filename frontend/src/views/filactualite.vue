@@ -1,21 +1,23 @@
 <template>
     <div id="container">
         <div id="formPost">
-
             <div id="feedArea">
-            <div class="alert feedbackMessage" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessage != ''"> {{ feedbackMessage }}</div>
-            <button class="btn btn-outline-danger active" @click.prevent="displayFormPost = !displayFormPost">Poster votre Gif</button>
-            <form v-if="displayFormPost" class="titre11"><label for="msgToPost"> Votre titre :</label>
-            <input type="text" id="msgToPost" class="form-control" placeholder="Titre de votre post" v-model="messageToPost">
-            <div>
-                <br><p> Aperçu de votre Post : </P>
-                <p>{{ messageToPost }}</p>
-                <img :src="this.img.url" v-if="this.imgIsChecked" class="previewImg" alt="Preview post">
-            </div><label for="imgToPost"></label><br>
-            <input type="file" id="imgToPost" ref="file"  @change="checkImage" accept="image/*">  <button class="btn btn-outline-danger active" @click.prevent="postMessage">Poster</button>
-        </form>
-        </div>
-        <Post @postFlagged="displayAllPosts()" v-for="(post, postIndex) in posts" :key="post.id" :authorId="post.authorId" :message="post.message" :image="post.image" :index="postIndex" :id="post.id" :isFlagged="post.isFlagged"></Post>
+                <div class="alert feedbackMessage" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackMessage != ''"> {{ feedbackMessage }}
+                </div>
+                <button class="btn btn-outline-danger active" @click.prevent="displayFormPost = !displayFormPost">Poster votre Gif</button>
+                <form v-if="displayFormPost" class="titre11"><label for="msgToPost"> Votre titre :</label>
+                    <input type="text" id="msgToPost" class="form-control" placeholder="Titre de votre post" v-model="messageToPost">
+                    <div>
+                        <br><p> Aperçu de votre Post : </P>
+                        <p>{{ messageToPost }}</p>
+                        <img :src="this.img.url" v-if="this.imgIsChecked" class="previewImg" alt="Preview post">
+                    </div>
+                    <label for="imgToPost"></label>
+                    <br>
+                    <input type="file" id="imgToPost" ref="file"  @change="checkImage" accept="image/*">  <button class="btn btn-outline-danger active" @click.prevent="postMessage">Poster</button>
+                </form>
+            </div>
+            <Post @postFlagged="displayAllPosts()" v-for="(post, postIndex) in posts" :key="post.id" :authorId="post.authorId" :message="post.message" :image="post.image" :index="postIndex" :id="post.id" :isFlagged="post.isFlagged"></Post>
         </div> 
     </div>
 </template>
@@ -160,7 +162,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#container {
+
+#container 
+{
     width: 100%;
     margin:auto;
     background-color: #ffffff;
@@ -171,19 +175,24 @@ export default {
     margin-top: 20px;
 }
 
-.feedbackMessage {
+.feedbackMessage 
+{
     width: 40%;
     margin: auto;
     margin-bottom: 1rem; 
 }
-#formPost {
+
+#formPost 
+{
     padding-top:1rem;
     margin:auto; 
     input{
         margin-top:1rem;
     }
 }
-#feedArea {
+
+#feedArea 
+{
     width: 40%;
     margin:auto;
     background-color: #ffffff;
@@ -194,15 +203,19 @@ export default {
     
 }
 
-.previewImg {
+.previewImg 
+{
     max-width:80%;
     width: 200px;
     height: 200px;
     height:auto;
 }
-@media all and(max-width:1000px) {
+
+@media all and(max-width:1000px) 
+{
     #formPost, #feedArea{
         width: 80%;
     }
 }
+
 </style>
