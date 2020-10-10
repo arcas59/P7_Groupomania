@@ -37,7 +37,7 @@
                     <button class="btn btn-outline-danger active" :disabled="$v.$invalid" @click.prevent="changePassword"> Changer de mot de passe </button>
             </form>
             <br> 
-            <button class="btn btn-danger" @click.prevent="displayDeleteMessage = !displayDeleteMessage"> Se désincrire </button>
+            <button class="btn btn-danger" @click.prevent="displayDeleteMessage = !displayDeleteMessage"> Se désinscrire </button>
             <div class="deleteMessage" v-if="displayDeleteMessage">
                 <h3>Etes vous sûr de vouloir supprimer votre compte ?</h3>
                 <div class="alert" :class="{'alert-success': !isAlert, 'alert-danger': isAlert}" v-if="feedbackDeleteAccount != ''"> {{ feedbackDeleteAccount }}
@@ -240,6 +240,13 @@ export default {
   small {
     color:red;
   }
+}
+
+form 
+{
+  max-width: 350px !important;
+  padding: 40px 40px;
+  margin: auto;
 }
 
 #profilBlock 

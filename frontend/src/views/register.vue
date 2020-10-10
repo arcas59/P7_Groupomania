@@ -135,6 +135,18 @@ export default {
   margin-top:1rem;
 }
 
+form 
+{
+  max-width: 450px !important;
+  padding: 40px 40px;
+  margin: auto;
+}
+
+input
+{
+    text-align:center;
+}
+
 $primary: #fd2d01;
 
 @import "bootstrap";

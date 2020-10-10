@@ -116,6 +116,13 @@ export default {
   height:auto;
 }
 
+form 
+{
+  max-width: 350px !important;
+  padding: 40px 40px;
+  margin: auto;
+}
+
 #content 
 {
   margin-top: -50px;;
@@ -143,6 +150,7 @@ export default {
 input
 {
   border: none;
+  text-align:center;
 }
 
 h1 
