@@ -280,4 +280,17 @@ form
 .file > input[type="file"] { position: absoulte; opacity: 0; top: 0; left: 0; right: 0; bottom: 0 }
 .file > label { position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-color: #666; color: #fff; line-height: 30px; text-align: center; cursor: pointer; }
 
+@media all and(max-width:700px) 
+{
+    .previewAvatar[data-v-64b7f6d6] 
+    {
+        max-width: 150px;
+        max-height: 150px;
+        border-radius: 50%;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
 </style>

@@ -110,6 +110,13 @@ export default {
 
 <style lang="scss" scoped>
 
+#bgContent {
+    background-color: white;
+    background-size: cover;
+    z-index: 1;
+    height: 0vh;
+}
+
 #logo 
 {
   width:250px;
@@ -181,7 +188,7 @@ h1
 {
   #content {
     width: 80vw;
-    left: 16%;
+    left: 13.5%;
     height: 70vh;
     top:20%;
     margin-top: 40px;

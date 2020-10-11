@@ -165,10 +165,11 @@ $primary: #fd2d01;
   left:10%;
   top:5%;
   overflow: scroll;
-  height: 100vh;
+  height: 130vh;
   overflow-x: hidden; 
   overflow-y: hidden;
   border: none;
+  margin-top: 70px;
 }
 
 .invalid 
