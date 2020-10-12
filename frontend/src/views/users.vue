@@ -3,7 +3,7 @@
     <div class="container">
       <img :src="profile.avatar" width="96" height="96" alt="" style="border-radius:100%">
       <h1>{{ profile.pseudo }} </h1>
-      <h2> Ses participations </h2>
+      <h2> Voici ses posts </h2>
       <Post @postFlagged="displayAllPosts()" v-for="(post, postIndex) in posts" :key="post.id" :authorId="post.authorId" :message="post.message" :image="post.image" :index="postIndex" :id="post.id"></Post>
     </div>
   </div>
@@ -74,7 +74,7 @@ export default {
 
 .content 
 {
-  background-color: #bcbcbc;
+  background-color: #ffffff;
   min-height: 93vh;
 }
 

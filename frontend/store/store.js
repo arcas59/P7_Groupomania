@@ -58,7 +58,7 @@ export const store = new Vuex.Store({
     }, actions: {
         getInfos(context) {
                 axios.get('http://localhost:3000/user/getInfos/' + context.state.userId, { headers: {
-                'Authorisation': `token ${context.state.tokenToCheck}`
+                'Authorization': `token ${context.state.tokenToCheck}`
                 }})
             .then(result => {
                 this.state.prenomUser = result.data[0].prenom;
