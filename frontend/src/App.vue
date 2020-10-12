@@ -15,25 +15,25 @@ export default {
     appHeader
   },
     beforeUpdate() {
-      console.log('beforeupdate: ', this.$store.state.avatarUser);
+      console.log('', this.$store.state.avatarUser);
     this.$store.state.tokenToCheck = this.$ls.get('token');
     this.$store.state.userId = this.$ls.get('userId');
     this.$store.commit('CHECK_TOKEN');
   },
     beforeCreate() {
-    console.log('beforecreated: ', this.$store.state.avatarUser);
+    console.log('', this.$store.state.avatarUser);
     this.$store.state.tokenToCheck = this.$ls.get('token');
     this.$store.state.userId = this.$ls.get('userId');
     this.$store.dispatch('getInfos');
     this.$store.commit('CHECK_TOKEN');
   },
   beforeMount() {
-    console.log('beforemount: ', this.$store.state.avatarUser);
+    console.log('', this.$store.state.avatarUser);
     this.$store.dispatch('getInfos');
   },
   created() {
-    console.log('created: ', this.$store.state.avatarUser);
-    console.log('created');
+    console.log('', this.$store.state.avatarUser);
+    console.log('');
   }
 }
 </script>

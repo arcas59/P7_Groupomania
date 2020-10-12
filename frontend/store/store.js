@@ -33,10 +33,7 @@ export const store = new Vuex.Store({
                 state.isValid = 'ok';
                 state.isLogged = true;
                 return true;
-            } catch(error) {
-                console.log(error);
-                console.log(state.tokenToCheck);
-                console.log('erreur test token'); 
+            } catch(error) { 
                 state.isValid = "expiry"; 
                 state.isLogged = false;
                 this.commit('LOGOUT');
@@ -56,15 +53,12 @@ export const store = new Vuex.Store({
             state.nomUser= '', 
             state.pseudoUser= '', 
             state.emailUser= '',
-            state.roleUser= ''
-            console.log('state cleared');
+            state.roleUser= '';
         }
     }, actions: {
         getInfos(context) {
-
-                console.log('executed');
                 axios.get('http://localhost:3000/user/getInfos/' + context.state.userId, { headers: {
-                'Authorization': `token ${context.state.tokenToCheck}`
+                'Authorisation': `token ${context.state.tokenToCheck}`
                 }})
             .then(result => {
                 this.state.prenomUser = result.data[0].prenom;
@@ -76,7 +70,7 @@ export const store = new Vuex.Store({
                 this.state.roleUser = result.data[0].role;
             })
             .catch(error => {
-                console.log(error)
+                console.log("Aucun utilisateur connecté", error);
             })
         }
     }
