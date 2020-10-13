@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 04 oct. 2020 à 18:38
+-- Généré le : mar. 13 oct. 2020 à 08:59
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `message` varchar(100) NOT NULL DEFAULT '',
   `idAuteur` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -74,7 +74,11 @@ INSERT INTO `comments` (`id`, `idPost`, `auteur`, `message`, `idAuteur`) VALUES
 (66, 65, 'Pierre59', 'On va passer des bons moments ici je crois bien !', 58),
 (67, 64, 'Pierre59', 'Le début d\'une grande aventure !', 58),
 (69, 66, 'admin', 'Coucou Pierre !', 60),
-(70, 66, 'arcas', 'Trop fort, l\'Admin qui répond à Pierre. Petit chanceux !', 52);
+(70, 66, 'arcas', 'Trop fort, l\'Admin qui répond à Pierre. Petit chanceux !', 52),
+(71, 63, 'arcas', 'Compte sur moi !', 52),
+(75, 69, 'arcas', 'Bonjour Florent !!!', 52),
+(79, 68, 'kelly59', 'Je crois que tous les membres de Groupomania vont très vite nous rejoindre !', 54),
+(80, 68, 'admin', 'Je crois bien, en effet !', 60);
 
 -- --------------------------------------------------------
 
@@ -91,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `nbComments` int(11) DEFAULT '0',
   `isFlagged` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
@@ -104,7 +108,8 @@ INSERT INTO `posts` (`id`, `authorId`, `image`, `message`, `nbComments`, `isFlag
 (63, 55, 'http://localhost:3000/posts/chat4.gif1601723173637.gif', 'Je crois que je vais passer du temps ici !', 0, 0),
 (64, 56, 'http://localhost:3000/posts/jarrive.gif1601730747502.gif', 'Attention, j\'arrive aussi sur Groupomania !!!', 0, 0),
 (65, 57, 'http://localhost:3000/posts/howimeetyourmother.gif1601731548209.gif', 'Woaaaaaaw, c\'est top ici ! C\'est trop cool pour échanger !', 0, 0),
-(66, 58, 'http://localhost:3000/posts/coucou.gif1601821704137.gif', 'Coucou tous le monde !!!', 0, 0);
+(66, 58, 'http://localhost:3000/posts/coucou.gif1601821704137.gif', 'Coucou tous le monde !!!', 0, 0),
+(68, 52, 'http://localhost:3000/posts/reflechir.gif1601839036402.gif', 'Il commence à y avoir du monde ici', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -123,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `avatar` varchar(255) NOT NULL DEFAULT 'http://localhost:3000/profiles/defaultUser.png',
   `role` varchar(20) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -138,7 +143,8 @@ INSERT INTO `users` (`id`, `nom`, `prenom`, `pseudo`, `email`, `password`, `avat
 (57, 'Velasqueze', 'Andréa', 'Andrea59', 'andrea59@hotmail.fr', '$2b$10$iz76SmhBlQIepDGdav2Yw.bu.DKr6EC6orYu8w8bu1zBiiIIElnb2', 'http://localhost:3000/profiles/andrea.jpg1601731115289.jpg', 'user'),
 (58, 'Turan', 'Pierre', 'Pierre59', 'pierre59@hotmail.fr', '$2b$10$.sZViUw6z4TJhx5dbXyOz.jQibGOgM6EXnc88FXr4U4N5bbmNjuxu', 'http://localhost:3000/profiles/pierre.jpg1601821296124.jpg', 'user'),
 (60, 'admin', 'admin', 'admin', 'admin@groupomania.com', '$2b$10$3Ovv/11.osktYeRt9mfTxeXTi285X4kQP2v5dBb97FKpRU7pwghI2', 'http://localhost:3000/profiles/admin.jpg1601827381139.jpg', 'admin'),
-(61, 'Rarut', 'Nelson', 'Nelson59', 'Nelson59@hotmail.fr', '$2b$10$Lm.wiceNcZkIixQW35Rjvu/84x83eplst.2eDtShNOyCZCaO3VRaW', 'http://localhost:3000/profiles/defaultUser.png', 'user');
+(61, 'Rarut', 'Nelson', 'Nelson59', 'Nelson59@hotmail.fr', '$2b$10$Lm.wiceNcZkIixQW35Rjvu/84x83eplst.2eDtShNOyCZCaO3VRaW', 'http://localhost:3000/profiles/defaultUser.png', 'user'),
+(64, 'Galapas', 'Clementine', 'Clementine59', 'edd1d8ba55c309a12f7800221f8e3cb8', '$2b$10$ya9O.3kqr0dUKNEegVeOgepIJ74nvgYmtMDwHUljk8rKVy25C9xdG', 'http://localhost:3000/profiles/defaultUser.png', 'user');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
