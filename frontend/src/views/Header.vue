@@ -33,12 +33,12 @@
 <style lang="scss">
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #fd2d01 !important;
+    color: #a82005 !important;
 }
 
 .active a
 {
-  color : #fd2d01 !important;
+  color : #a82005 !important;
 }
 
 .social-part .fa

@@ -203,7 +203,7 @@ export default {
         align-self: center;
         margin-left:0.4rem;
         a {
-        color:#fd2d01;
+        color: rgb(129, 0, 0);
         }
 
     }

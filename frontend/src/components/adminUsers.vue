@@ -49,7 +49,7 @@ h3
 
 a
 {
-    color: #fd2d01;
+    color: #a82005;
 }
 
 a:hover
